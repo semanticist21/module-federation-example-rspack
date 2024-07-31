@@ -1,23 +1,25 @@
 {
-  "name": "react-monorepo-2",
+  "name": "host",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "apps/react-monorepo-2/src",
+  "sourceRoot": "apps/host/src",
   "projectType": "application",
   "tags": [],
   "targets": {
     "build": {
       "executor": "@nx/rspack:rspack",
-      "outputs": ["{options.outputPath}"],
+      "outputs": [
+        "{options.outputPath}"
+      ],
       "defaultConfiguration": "production",
       "options": {
         "target": "web",
-        "outputPath": "dist/apps/react-monorepo-2",
-        "main": "apps/react-monorepo-2/src/main.tsx",
-        "tsConfig": "apps/react-monorepo-2/tsconfig.app.json",
-        "rspackConfig": "apps/react-monorepo-2/rspack.config.js",
+        "outputPath": "dist/apps/host",
+        "main": "apps/host/src/main.tsx",
+        "tsConfig": "apps/host/tsconfig.app.json",
+        "rspackConfig": "apps/host/rspack.config.js",
         "assets": [
-          "apps/react-monorepo-2/src/favicon.ico",
-          "apps/react-monorepo-2/src/assets"
+          "apps/host/src/favicon.ico",
+          "apps/host/src/assets"
         ]
       },
       "configurations": {
@@ -34,12 +36,12 @@
     "serve": {
       "executor": "@nx/rspack:dev-server",
       "options": {
-        "buildTarget": "react-monorepo-2:build:development"
+        "buildTarget": "host:build:development"
       },
       "configurations": {
         "development": {},
         "production": {
-          "buildTarget": "react-monorepo-2:build:production"
+          "buildTarget": "host:build:production"
         }
       }
     }
