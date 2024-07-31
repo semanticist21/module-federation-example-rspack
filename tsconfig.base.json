@@ -14,7 +14,10 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@react-monorepo-2/store": ["lib/store/src/index.ts"],
+      "@react-monorepo-2/ui": ["lib/ui/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

@@ -9,6 +9,18 @@ module.exports = composePlugins(withNx(), withReact(), (config) => {
     devServer: {
       historyApiFallback: true,
     },
+    output: {
+      uniqueName: 'remote1',
+    },
+    plugins: [
+      new ModuleFederationPlugin({
+        name: 'remote1',
+        exposes: {
+          './store-page': './apps/remote1/src/app/pages/store-page.tsx',
+        },
+        shared: ['react', 'react-dom'],
+      }),
+    ],
     module: {
       rules: [
         ...config.module.rules,
@@ -19,14 +31,5 @@ module.exports = composePlugins(withNx(), withReact(), (config) => {
         },
       ],
     },
-    plugins: [
-      new ModuleFederationPlugin({
-        name: 'host',
-        remotes: {
-          remote1: 'remote1@http://localhost:3001/mf-manifest.json',
-        },
-        shared: ['react', 'react-dom'],
-      }),
-    ],
   };
 });
